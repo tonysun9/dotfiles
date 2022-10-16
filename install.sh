@@ -31,6 +31,7 @@ zshrc() {
     echo "             cloning zsh-syntax-highlighting               "
     echo "-----------------------------------------------------------"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    curl -sS https://starship.rs/install.sh | sh
     echo "==========================================================="
     echo "             import zshrc                                  "
     echo "-----------------------------------------------------------"
@@ -48,8 +49,6 @@ then
     sudo apt-get install -y \
     fonts-powerline \
     zsh
-
-    curl -sS https://starship.rs/install.sh | sh
 
     # cp -f ~/dotfiles/.zshrc ~/.zshrc
     # chsh -s /usr/bin/zsh $USERNAME

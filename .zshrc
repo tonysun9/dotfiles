@@ -1,19 +1,8 @@
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
-mkcd() { mkdir -p "$@" && cd "$@"; }
-
-alias gs='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gc='git commit'
-
-eval "$(starship init zsh)"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -87,7 +76,7 @@ plugins=(
     copyfile
     dirhistory
     history
-    command-time
+    cmdtime
     git
 )
 
@@ -126,9 +115,14 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source $HOME/zsh_setup/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+mkcd() { mkdir -p "$@" && cd "$@"; }
+
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+
+eval "$(starship init zsh)"

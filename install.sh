@@ -31,7 +31,6 @@ zshrc() {
     echo "             cloning zsh-syntax-highlighting               "
     echo "-----------------------------------------------------------"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    curl -sS https://starship.rs/install.sh | sh
     echo "==========================================================="
     echo "             import zshrc                                  "
     echo "-----------------------------------------------------------"
@@ -48,6 +47,7 @@ if [ "$INSTALL_ZSH" = "true" ]
 then
     sudo apt-get install -y \
     fonts-powerline \
+    fonts-firacode \
     zsh
 
     # cp -f ~/dotfiles/.zshrc ~/.zshrc
@@ -56,6 +56,15 @@ then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     echo "source $PWD/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+    curl -s https://api.github.com/repos/starship/starship/releases/latest \
+      | grep browser_download_url \
+      | grep x86_64-unknown-linux-gnu \
+      | cut -d '"' -f 4 \
+      | wget -qi -
+
+    tar xvf starship-*.tar.gz
+    sudo mv starship /usr/local/bin/
 
     zshrc
 

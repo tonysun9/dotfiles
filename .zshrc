@@ -76,7 +76,6 @@ plugins=(
     copyfile
     dirhistory
     history
-    cmdtime
     git
 )
 
